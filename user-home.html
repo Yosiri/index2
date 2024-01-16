@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('School.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #28a745;
+            padding: 10px;
+        }
+
+        .logo img {
+            margin-right: 10px;
+            height: 50px; 
+        }
+
+        nav {
+            padding: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .links li {
+            margin-left: 20px;
+        }
+
+        .links a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .links a:hover {
+            color: #ffd700;
+        }
+
+        .action_btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .action_btn:hover {
+            background-color: #218838;
+        }
+       
+        .welcome-text {
+            position: fixed;
+            bottom: 100px;
+            left: 125px;
+            font-size: 17px;
+            background-color: rgba(248, 209, 209, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            animation: glowing 3s infinite;
+        }
+
+        .introduction {
+            position: fixed;
+            top: 100px;
+            left: 125px;
+            font-size: 17px;
+            background-color: rgba(248, 209, 209, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            animation: glowing 3s infinite;
+        }
+
+        @keyframes glowing {
+            0% {
+                color: #000000;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 255, 255, 0.9);
+            }
+
+            50% {
+                color: #303030;
+                text-shadow: 0 0 20px rgba(100, 255, 108, 0.9), 0 0 30px rgba(43, 255, 0, 0.9);
+            }
+
+            100% {
+                color: #2b2b2b;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        section {
+            overflow: hidden;
+            margin: 20px;
+            padding: 20px;
+            border-radius: px;
+        }
+
+        section h2 {
+            color: #2C3E50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            color: #34495E;
+            font-size: 18px;
+        }
+
+        .teacher-profiles {
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .teacher-profile {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(248, 209, 209, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            animation: glowing 3s infinite;
+        }
+
+        .teacher-profile img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .teacher-profile h3 {
+            color: #2C3E50;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .teacher-profile p {
+            color: #34495E;
+            font-size: 16px;
+        }
+    </style>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo_thumb.png" alt="Logo">
+            <img src="ti-head.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class="links">
+                <li><a href="user-home.html">Home</a></li>
+                <li><a href="appointment.html">Appointment List</a></li>
+                <li><a href="Myappointment.html">My Appointment</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="welcome-text">
+        <p>With our school appointment website, scheduling meetings with teachers becomes a breeze,</p>
+        <p>benefiting both students and educators. The platform showcases teachers' </p>
+        <p>availability and sends handy reminders, making sure everyone stays on track.</p>
+    </div>
+
+    <div class="introduction">
+        <h3>Welcome to Tanauan Institute Appointment Center.</h2>
+        <p> Here, you can easily set up meetings with our teachers.</p>
+        <p>Find out when they're available and their school hours.</p>
+        <p>We're here to make scheduling simple and help you connect with your teachers easily!</p>
+    </div>
+
+    <section id="teacher-profiles" class="teacher-profiles">
+        <div class="teacher-profile" title="Mr. Teacher 1">
+            <h2>WebDeveloper</h2>
+            <img src="410964367_384490673992081_7216731706048533168_n.jpg" alt="Mr. Teacher 1">
+            <h3>Aldrich Miguel M. Malijan</h3>
+            <p>Subject: CSS<br>Expertise:HARDWARE<br>Building: A <br>Room: 102<br>Free Time: 12:30 PM - 2:30 PM</p>
+        </div>
+
+        <div class="teacher-profile" title="Mr. Teacher 2">
+            <img src="Sabio.jpg" alt="Mr. Teacher 2">
+            <h3>John Paul Solero Sabio</h3>
+            <p>Subject: Science<br>Expertise:BIOCHEMISTRY<br>Building: A<br>Room: 201<br>Free Time: 12:30 PM - 2:30 PM</p>
+        </div>
+    </section>
+</body>
+
+</html>

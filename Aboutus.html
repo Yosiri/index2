@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('School.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #28a745;
+            padding: 10px;
+        }
+
+        .logo img {
+            margin-right: 20px;
+            height: 50px;
+        }
+
+        nav {
+            padding: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .links li {
+            margin-left: 20px;
+        }
+
+        .links a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .links a:hover {
+            color: #ffd700;
+        }
+
+        .action_btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .action_btn:hover {
+            background-color: #218838;
+        }
+
+        .about-section {
+            background-color: #f4f4f400;
+        }
+
+        .about-content {
+            width: 490px;
+            padding: 20px;
+            background-color: rgba(255, 240, 240, 0.288);
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.493);
+            backdrop-filter: blur(5px);
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4400ff;
+        }
+
+        .about-content ol {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .about-content ol li {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .about-content .researcher-left,
+        .about-content .researcher-right {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .about-content .researcher-left {
+            float: left;
+        }
+
+        .about-content .researcher-right {
+            float: right;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .research-titles {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo_thumb.png" alt="Logo">
+            <img src="ti-head.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class="links">
+                <li><a href="user-home.html">Home</a></li>
+                <li><a href="appointment.html">Appointment List</a></li>
+                <li><a href="Myappointment.html">My Appointment</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="about-content clearfix">
+            <h2>ABOUT US</h2>
+            <p>Welcome to our About Us page! We are students from Tanauan Institute, Inc., specifically CSS-12A Group 1 in PRACTICAL RESEARH 2. Our dedicated team is focused on researching and developing our website, with a particular emphasis on creating a seamless appointment system for both parents and teachers. Explore our efforts as we strive to enhance communication and convenience within our school community.</p>
+            <div class="research-titles">
+                <div style="text-align: left;">
+                    <h4>WebDeveloper</h4>
+                    <li>Aldrich Malijan</li>
+                </div>
+                <div style="text-align: right;">
+                    <h4>Research Leader</h4>
+                    <li>Crissa Mae Abellar</li>
+                </div>
+            </div>
+
+            <ol>
+                <h3 style="text-align: center;">Researchers:</h3>
+                <li class="researcher-center">John Gniel Manzanero Esleigue</li>
+                <li class="researcher-center">Chris Zytte Macandili</li>
+                <li class="researcher-center">John Paul Solero Sabio</li>
+                <li class="researcher-center">Markpaul Martinez</li>
+                <li class="researcher-center">Ryza Jamoragan</li>
+                <li class="researcher-center">John Paulo Alayon</li>
+            </ol>
+        </div>
+    </section>
+
+</body>
+
+</html>

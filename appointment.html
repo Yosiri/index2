@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('School.jpg');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            color: #000000;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #28a745;
+            padding: 10px;
+        }
+
+        .logo img {
+            margin-right: 10px;
+            height: 50px; 
+        }
+
+        nav {
+            padding: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .links li {
+            margin-left: 20px;
+        }
+
+        .links a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .links a:hover {
+            color: #ffd700; 
+        }
+
+        .action_btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .action_btn:hover {
+            background-color: #218838;
+        }
+
+        .teacher-profile {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #201dff;
+            background-color: #e7e7e78a;
+            text-align: center;
+            animation: glowing 3s infinite;
+            backdrop-filter: blur(5px);
+        }
+
+        .teacher-profile img {
+            width: 100%;
+            border-radius: 30%;
+            margin-bottom: 10px;
+        }
+
+        .teacher-profile h3 {
+            color: #2C3E50;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .teacher-profile p {
+            color: #34495E;
+            font-size: 25px;
+        }
+
+        form {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        label,
+        input {
+            display: block;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 20%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            backdrop-filter: blur(5px);
+
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+            color: #ffffff00;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .warning {
+            color: red;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 20%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+    </style>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo_thumb.png" alt="Logo">
+            <img src="ti-head.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class="links">
+                <li><a href="user-home.html">Home</a></li>
+                <li><a href="appointment.html">Appointment List</a></li>
+                <li><a href="Myappointment.html">My Appointment</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="teacher-profile" id="teacher-profile-1" data-teacher="John Doe" data-subjects="Mathematics" data-building="A">
+        <img src="teacher1.jpg" alt="Teacher 1">
+        <p>Name: John Doe</p>
+        <p>Subject: Mathematics</p>
+        <p>Time: 10:00 AM - 12:00 PM</p>
+        <p>Building: A</p>
+        <button type="button" onclick="showPopup(1)">Make Appointment</button>
+    </div>
+
+    <div class="teacher-profile" id="teacher-profile-2" data-teacher="Jane Smith" data-subjects="English Literature" data-building="B">
+        <img src="teacher2.jpg" alt="Teacher 2">
+        <p>Name: Jane Smith</p>
+        <p>Subject: English Literature</p>
+        <p>Time: 2:00 PM - 4:00 PM</p>
+        <p>Building: B</p>
+        <button type="button" onclick="showPopup(2)">Make Appointment</button>
+    </div>
+
+    <div class="teacher-profile" id="teacher-profile-3" data-teacher="Michael Johnson" data-subjects="Science" data-building="C">
+        <img src="teacher3.jpg" alt="Teacher 3">
+        <p>Name: Michael Johnson</p>
+        <p>Subject: Science</p>
+        <p>Time: 3:30 PM - 5:30 PM</p>
+        <p>Building: C</p>
+        <button type="button" onclick="showPopup(3)">Make Appointment</button>
+    </div>
+
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span onclick="hidePopup()" style="float: right; cursor: pointer;">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form id="popup-appointment-form">
+                <label for="popup-teacher">Teacher:</label>
+                <input type="text" id="popup-teacher" name="teacher" readonly>
+
+                <label for="popup-subjects">Subjects:</label>
+                <input type="text" id="popup-subjects" name="subjects" readonly>
+
+                <label for="popup-building">Building:</label>
+                <input type="text" id="popup-building" name="building" readonly>
+
+                <label for="popup-name">Name:</label>
+                <input type="text" id="popup-name" name="name" required>
+
+                <label for="popup-email">Email:</label>
+                <input type="email" id="popup-email" name="email" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com$">
+                <small id="emailWarning" class="warning">(Email should contain @gmail.com)</small>
+
+                <label for="popup-phone">Phone:</label>
+                <input type="tel" id="popup-phone" name="phone" required pattern="[0-9]{11}">
+                <small id="phoneWarning" class="warning">(Phone should be 11 digits)</small>
+
+                <label for="popup-date">Date:</label>
+                <input type="date" id="popup-date" name="date" required max="2024-12-31">
+                <small id="dateWarning" class="warning">(Date should not exceed 2024)</small>
+
+                <label for="popup-time">Time:</label>
+                <input type="time" id="popup-time" name="time" required>
+
+                <button type="button" onclick="addAppointmentFromPopup()">Add Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Teacher</th>
+                <th>Subjects</th>
+                <th>Building</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="appointment-table-body">
+        </tbody>
+    </table>
+
+    <script>
+var storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+var tableBody = document.getElementById('appointment-table-body');
+storedAppointments.forEach(function (appointment) {
+    var newRow = `<tr>
+        <td>${appointment.teacher}</td>
+        <td>${appointment.subjects}</td>
+        <td>${appointment.building}</td>
+        <td>${appointment.name}</td>
+        <td>${appointment.email}</td>
+        <td>${appointment.phone}</td>
+        <td>${appointment.date}</td>
+        <td>${appointment.time}</td>
+    </tr>`;
+    tableBody.innerHTML += newRow;
+});
+
+function showPopup(profileId) {
+    var appointmentModal = document.getElementById('appointmentModal');
+    appointmentModal.style.display = 'block';
+
+    var profile = document.getElementById('teacher-profile-' + profileId);
+    document.getElementById('popup-teacher').value = profile.dataset.teacher;
+    document.getElementById('popup-subjects').value = profile.dataset.subjects;
+    document.getElementById('popup-building').value = profile.dataset.building;
+    document.getElementById('popup-name').value = '';
+    document.getElementById('popup-email').value = '';
+    document.getElementById('popup-phone').value = '';
+    document.getElementById('popup-date').value = '';
+    document.getElementById('popup-time').value = '';
+}
+
+function hidePopup() {
+    document.getElementById('appointmentModal').style.display = 'none';
+}
+
+function addAppointmentFromPopup() {
+    var teacher = document.getElementById('popup-teacher').value;
+    var subjects = document.getElementById('popup-subjects').value;
+    var building = document.getElementById('popup-building').value;
+    var name = document.getElementById('popup-name').value;
+    var email = document.getElementById('popup-email').value;
+    var phone = document.getElementById('popup-phone').value;
+    var date = document.getElementById('popup-date').value;
+    var time = document.getElementById('popup-time').value;
+
+    if (!teacher || !subjects || !building || !name || !email || !phone || !date || !time) {
+        alert("Please fill in all the fields.");
+        return;
+    }
+
+    if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
+        document.getElementById('emailWarning').style.display = 'inline';
+        return;
+    } else {
+        document.getElementById('emailWarning').style.display = 'none';
+    }
+
+    if (!/^[0-9]{11}$/.test(phone)) {
+        document.getElementById('phoneWarning').style.display = 'inline';
+        return;
+    } else {
+        document.getElementById('phoneWarning').style.display = 'none';
+    }
+
+    if (new Date(date) > new Date('2024-12-31')) {
+        document.getElementById('dateWarning').style.display = 'inline';
+        return;
+    } else {
+        document.getElementById('dateWarning').style.display = 'none';
+    }
+
+    var newAppointment = {
+        teacher: teacher,
+        subjects: subjects,
+        building: building,
+        name: name,
+        email: email,
+        phone: phone,
+        date: date,
+        time: time
+    };
+
+    storedAppointments.push(newAppointment);
+
+    localStorage.setItem('appointments', JSON.stringify(storedAppointments));
+
+    var newRow = `<tr>
+        <td>${newAppointment.teacher}</td>
+        <td>${newAppointment.subjects}</td>
+        <td>${newAppointment.building}</td>
+        <td>${newAppointment.name}</td>
+        <td>${newAppointment.email}</td>
+        <td>${newAppointment.phone}</td>
+        <td>${newAppointment.date}</td>
+        <td>${newAppointment.time}</td>
+    </tr>`;
+    tableBody.innerHTML += newRow;
+
+    document.getElementById('popup-appointment-form').reset();
+
+    hidePopup();
+}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="return signup()">
+            <label for="name">UserName:</label>
+            <input type="text" placeholder="Enter Your UserName" name="Username" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" placeholder="Enter Your Email (e.g., john.doe@gmail.com)" name="email" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com$">
+
+            <label for="psw">Password:</label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Sign Up</button>
+            <span class="psw1">Already have an account? <a href="index.html">Login now</a></span>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

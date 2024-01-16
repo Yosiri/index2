@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('School.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #28a745;
+    padding: 10px;
+}
+
+.logo img {
+    margin-right: 20px;
+    height: 50px; 
+}
+
+nav {
+    padding: 10px;
+}
+
+.links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.links li {
+    margin-left: 20px;
+}
+
+.links a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.links a:hover {
+    color: #ffd700; 
+}
+
+.action_btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.action_btn:hover {
+    background-color: #218838; 
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    color: #000000;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff21;
+    background-color: rgba(250, 250, 250, 0.363);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #28a745;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(200, 200, 200, 0.5);
+}
+
+tbody tr:hover {
+    background-color: rgba(200, 200, 200, 0.8);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #343a40;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    color: #fff;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #495057;
+    color: #fff;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #218838; 
+}
+
+
+span {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+}
+
+span:hover {
+    color: #ffd700; 
+}
+
+    </style>
+    <title>User's Appoinment</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo_thumb.png" alt="Logo">
+            <img src="ti-head.png" alt="Logo">
+        </div>
+        <nav>
+            <ul class="links">
+                <li><a href="admin-home.html">User's Appoinment</a></li>
+                <li><a href="User.html">Users</a></li>
+                <li><a href="Teacher.html">Teacher's</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div>
+        <h1>User's Appoinment</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Teacher</th>
+                    <th>Subjects</th>
+                    <th>Building</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="appointment-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="editAppointmentModal" class="modal">
+        <div class="modal-content">
+            <span onclick="hideEditPopup()" style="float: right; cursor: pointer;">&times;</span>
+            <h2>Edit Appointment</h2>
+            <form id="edit-appointment-form">
+                <input type="hidden" id="edit-appointment-index" value="">
+                <label for="edit-teacher">Teacher:</label>
+                <input type="text" id="edit-teacher" name="teacher" required>
+
+                <label for="edit-subjects">Subjects:</label>
+                <input type="text" id="edit-subjects" name="subjects" required>
+
+                <label for="edit-building">Building:</label>
+                <input type="text" id="edit-building" name="building" required>
+
+                <label for="edit-name">Name:</label>
+                <input type="text" id="edit-name" name="name" required>
+
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" name="email" required>
+
+                <label for="edit-phone">Phone:</label>
+                <input type="tel" id="edit-phone" name="phone" required>
+
+                <label for="edit-date">Date:</label>
+                <input type="date" id="edit-date" name="date" required>
+
+                <label for="edit-time">Time:</label>
+                <input type="time" id="edit-time" name="time" required>
+
+                <button type="button" onclick="confirmUpdateAppointment()">Update Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+        var tableBody = document.getElementById('appointment-table-body');
+        storedAppointments.forEach(function (appointment) {
+            var newRow = "<tr><td>" + appointment.teacher + "</td><td>" + appointment.subjects + "</td><td>" +
+                appointment.building + "</td><td>" + appointment.name + "</td><td>" + appointment.email + "</td><td>" +
+                appointment.phone + "</td><td>" + appointment.date + "</td><td>" + appointment.time + "</td>" +
+                "<td><button type='button' onclick='showEditPopup(" + storedAppointments.indexOf(appointment) + ")'>Edit</button></td>" +
+                "<td><button type='button' onclick='deleteAppointment(" + storedAppointments.indexOf(appointment) + ")'>Delete</button></td></tr>";
+            tableBody.innerHTML += newRow;
+        });
+
+        function showEditPopup(index) {
+            document.getElementById('editAppointmentModal').style.display = 'block';
+            var appointment = storedAppointments[index];
+            document.getElementById('edit-appointment-index').value = index;
+            document.getElementById('edit-teacher').value = appointment.teacher;
+            document.getElementById('edit-subjects').value = appointment.subjects;
+            document.getElementById('edit-building').value = appointment.building;
+            document.getElementById('edit-name').value = appointment.name;
+            document.getElementById('edit-email').value = appointment.email;
+            document.getElementById('edit-phone').value = appointment.phone;
+            document.getElementById('edit-date').value = appointment.date;
+            document.getElementById('edit-time').value = appointment.time;
+        }
+
+        function hideEditPopup() {
+            document.getElementById('editAppointmentModal').style.display = 'none';
+        }
+
+        function confirmUpdateAppointment() {
+            var index = document.getElementById('edit-appointment-index').value;
+            updateAppointment(index);
+            hideEditPopup();
+        }
+
+        function updateAppointment(index) {
+            var teacher = document.getElementById('edit-teacher').value;
+            var subjects = document.getElementById('edit-subjects').value;
+            var building = document.getElementById('edit-building').value;
+            var name = document.getElementById('edit-name').value;
+            var email = document.getElementById('edit-email').value;
+            var phone = document.getElementById('edit-phone').value;
+            var date = document.getElementById('edit-date').value;
+            var time = document.getElementById('edit-time').value;
+
+            if (!teacher || !subjects || !building || !name || !email || !phone || !date || !time) {
+                alert("Please fill in all the fields.");
+                return;
+            }
+
+            var updatedAppointment = {
+                teacher: teacher,
+                subjects: subjects,
+                building: building,
+                name: name,
+                email: email,
+                phone: phone,
+                date: date,
+                time: time
+            };
+
+            storedAppointments[index] = updatedAppointment;
+
+            localStorage.setItem('appointments', JSON.stringify(storedAppointments));
+
+            refreshTable();
+        }
+
+        function deleteAppointment(index) {
+            var confirmDelete = confirm("Are you sure you want to delete this appointment?");
+            if (confirmDelete) {
+                storedAppointments.splice(index, 1);
+
+                localStorage.setItem('appointments', JSON.stringify(storedAppointments));
+
+                refreshTable();
+            }
+        }
+
+        function refreshTable() {
+            tableBody.innerHTML = "";
+
+            storedAppointments.forEach(function (appointment) {
+                var newRow = "<tr><td>" + appointment.teacher + "</td><td>" + appointment.subjects + "</td><td>" +
+                    appointment.building + "</td><td>" + appointment.name + "</td><td>" + appointment.email + "</td><td>" +
+                    appointment.phone + "</td><td>" + appointment.date + "</td><td>" + appointment.time + "</td>" +
+                    "<td><button type='button' onclick='showEditPopup(" + storedAppointments.indexOf(appointment) + ")'>Edit</button></td>" +
+                    "<td><button type='button' onclick='deleteAppointment(" + storedAppointments.indexOf(appointment) + ")'>Delete</button></td></tr>";
+                tableBody.innerHTML += newRow;
+            });
+        }
+    </script>
+
+</body>
+
+</html>
